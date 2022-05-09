@@ -19,6 +19,8 @@ Material UI Recipes:
 - Icons Search: https://v4.mui.com/components/material-icons/
 - ...
 
+nanoid: https://www.npmjs.com/package/nanoid
+
 
 Set up Material UI: https://v4.mui.com/
 

@@ -29,6 +29,7 @@ export const AddCourseModal = ({
 
     // TODO: Do any validation you'd like here, before submitting
 
+    setCourse(initialFormState)
     onSubmit(course)
   }
 
@@ -51,7 +52,7 @@ export const AddCourseModal = ({
             </CardContent>
             <CardActions>
               <Button onClick={() => onClose()}>Cancel</Button>
-              <Button color="primary" variant="contained" onClick={() => handleSubmit()}>Save</Button>
+              <Button color="primary" variant="contained" type="submit" onClick={() => handleSubmit()}>Save</Button>
             </CardActions>
           </Card>
         </form>
