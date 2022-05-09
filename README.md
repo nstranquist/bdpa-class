@@ -1,13 +1,26 @@
-# Student Classes
+# BDPA: React State Management: Student Classes Tracker App
+
+This app will allow students to add and remove courses they are enrolled in.
+Each course will have a list of courses that can be added, updated, removed, and reassigned
+The student can update their name at any time!
 
 ### Resources
 
 Favicon Icon: https://www.pngrepo.com/svg/327212/school-sharp
 App Icon: https://github.com/tailwindlabs/heroicons/blob/master/src/solid/academic-cap.svg
+Favicon Converter: https://favicon.io/favicon-converter/
 
 NPM dependency issues encountered:
 - https://stackoverflow.com/questions/70293720/material-ui-next12-react-18
 - ...
+
+Set up Material UI: https://v4.mui.com/
+
+### Some Technologies Used
+- React
+- Material UI
+- Context API
+- Hooks: useState, useEffect, useReducer, useContext
 
 
 # Getting Started with Create React App

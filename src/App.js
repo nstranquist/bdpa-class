@@ -1,5 +1,6 @@
 import logo from './logo.svg'
-import { Button } from '@material-ui/core'
+import { Button, Container } from '@material-ui/core'
+import { ProfileName } from './components/ProfileName';
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         </p>
         <Button color="primary">Learn React!</Button>
       </header>
+      <Container>
+        <ProfileName />
+      </Container>
     </div>
   );
 }
