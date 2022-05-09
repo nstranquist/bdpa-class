@@ -14,6 +14,12 @@ NPM dependency issues encountered:
 - https://stackoverflow.com/questions/70293720/material-ui-next12-react-18
 - ...
 
+Material UI Recipes:
+- Cards: https://v4.mui.com/components/cards/#card
+- Icons Search: https://v4.mui.com/components/material-icons/
+- ...
+
+
 Set up Material UI: https://v4.mui.com/
 
 ### Some Technologies Used

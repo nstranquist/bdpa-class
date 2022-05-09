@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Box, Card, CardContent, Typography, CardActions, Button } from "@material-ui/core"
+import AddIcon from '@material-ui/icons/Add';
 
 const exampleCourse = {
   name: 'Physics',
@@ -20,10 +22,17 @@ const exampleCourses = [
 ]
 
 export const Courses = () => {
+  const [showAddCourseForm, setShowAddCourseForm] = useState(false)
+
+  const addCourse = () => {
+    setShowAddCourseForm(true)
+  }
 
   return (
     <Box style={{marginTop: 20}}>
       <Typography variant="h4" component="h2" gutterBottom>Courses</Typography>
+
+      <Button color="primary" size="large" startIcon={<AddIcon />} onClick={addCourse}>Add</Button>
 
       {/* https://v4.mui.com/components/cards/#card */}
       <Box flexDirection="column" alignItems="center">
@@ -35,7 +44,7 @@ export const Courses = () => {
               <Typography variant="h6" component="h6">{course.score}%</Typography>
             </CardContent>
             <CardActions>
-              <Button color="primary">View More</Button>
+              <Button>View More</Button>
             </CardActions>
           </Card>
         ))}
