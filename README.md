@@ -5,6 +5,10 @@
 Favicon Icon: https://www.pngrepo.com/svg/327212/school-sharp
 App Icon: https://github.com/tailwindlabs/heroicons/blob/master/src/solid/academic-cap.svg
 
+NPM dependency issues encountered:
+- https://stackoverflow.com/questions/70293720/material-ui-next12-react-18
+- ...
+
 
 # Getting Started with Create React App
 
