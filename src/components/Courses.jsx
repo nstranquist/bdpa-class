@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Box, Card, CardContent, Typography, CardActions, Button } from "@material-ui/core"
 import AddIcon from '@material-ui/icons/Add';
+import { AddCourseModal } from './AddCourseModal';
 
 const exampleCourse = {
   name: 'Physics',
@@ -24,15 +25,24 @@ const exampleCourses = [
 export const Courses = () => {
   const [showAddCourseForm, setShowAddCourseForm] = useState(false)
 
-  const addCourse = () => {
+  const toggleAddCourseForm = () => {
     setShowAddCourseForm(true)
+  }
+
+  const closeModal = () => setShowAddCourseForm(false)
+
+  const addCourse = (courseData) => {
+    console.log('got data:', courseData)
+
+    setShowAddCourseForm(false)
   }
 
   return (
     <Box style={{marginTop: 20}}>
       <Typography variant="h4" component="h2" gutterBottom>Courses</Typography>
 
-      <Button color="primary" size="large" startIcon={<AddIcon />} onClick={addCourse}>Add</Button>
+      <Button color="primary" size="large" startIcon={<AddIcon />} onClick={() => toggleAddCourseForm()}>Add</Button>
+      <AddCourseModal open={showAddCourseForm} onClose={closeModal} onSubmit={addCourse} />
 
       {/* https://v4.mui.com/components/cards/#card */}
       <Box flexDirection="column" alignItems="center">
