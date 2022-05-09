@@ -23,14 +23,19 @@ function App() {
         <Button color="primary">Learn React!</Button>
       </header>
 
-      <ProfileContext.Provider value={{
-        name: profileName,
-        setName: setName
-      }}>
-        <Container>
+      <Container>
+        {/* Profile */}
+        <ProfileContext.Provider value={{
+          name: profileName,
+          setName: setName
+        }}>
           <ProfileName />
-        </Container>
-      </ProfileContext.Provider>
+        </ProfileContext.Provider>
+
+        {/* Courses */}
+      </Container>
+
+      
     </div>
   );
 }
