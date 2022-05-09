@@ -1,3 +1,11 @@
+# Student Classes
+
+### Resources
+
+Favicon Icon: https://www.pngrepo.com/svg/327212/school-sharp
+App Icon: https://github.com/tailwindlabs/heroicons/blob/master/src/solid/academic-cap.svg
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
