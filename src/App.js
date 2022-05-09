@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import { Button, Container } from '@material-ui/core'
 import { ProfileName } from './components/ProfileName';
 import ProfileContext from './context/ProfileContext'
+import { Courses } from './components/Courses';
 
 function App() {
   const [profileName, setProfileName] = useState('')
@@ -33,6 +34,7 @@ function App() {
         </ProfileContext.Provider>
 
         {/* Courses */}
+        <Courses />
       </Container>
 
       
