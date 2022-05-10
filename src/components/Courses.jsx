@@ -44,7 +44,7 @@ export const Courses = () => {
   }
 
   return (
-    <Box style={{marginTop: 20}}>
+    <Box style={{marginTop: 50}}>
       <Typography variant="h4" component="h2" gutterBottom>Courses</Typography>
 
       <Button color="primary" size="large" startIcon={<AddIcon />} onClick={() => toggleAddCourseForm()}>New Course</Button>

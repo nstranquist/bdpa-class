@@ -1,6 +1,9 @@
 import { createContext } from 'react'
 
-const initialProfileValue = ''
+const initialProfileValue = {
+  name: '',
+  setName: () => {}
+}
 
 const ProfileContext = createContext(initialProfileValue)
 

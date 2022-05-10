@@ -1,12 +1,23 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import { Button, Container } from '@material-ui/core'
+import { Container, makeStyles } from '@material-ui/core'
 import { ProfileName } from './components/ProfileName';
-import ProfileContext from './context/ProfileContext'
+import { Navbar } from './components/Navbar'
 import { Courses } from './components/Courses';
+import ProfileContext from './context/ProfileContext'
 import CoursesProvider from './context/CoursesContext';
 
+const useStyles = makeStyles((theme) => ({
+  layoutContainer: {
+    minHeight: '100vh',
+    width: '100%'
+  },
+  contentContainer: {
+    marginTop: '64px', // theme.mixins.toolbar.minHeight
+  }
+}))
+
 function App() {
+  const classes = useStyles()
   const [profileName, setProfileName] = useState('')
 
   const setName = (name) => {
@@ -15,30 +26,25 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={classes.layoutContainer}>
+      <Navbar name={profileName} />
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button color="primary">Learn React!</Button>
-      </header>
+      <div className={classes.contentContainer}>
+        <Container>
+          {/* Profile */}
+          <ProfileContext.Provider value={{
+            name: profileName,
+            setName: setName
+          }}>
+            <ProfileName />
+          </ProfileContext.Provider>
 
-      <Container>
-        {/* Profile */}
-        <ProfileContext.Provider value={{
-          name: profileName,
-          setName: setName
-        }}>
-          <ProfileName />
-        </ProfileContext.Provider>
-
-        {/* Courses */}
-        <CoursesProvider>
-          <Courses />
-        </CoursesProvider>
-      </Container>
+          {/* Courses */}
+          <CoursesProvider>
+            <Courses />
+          </CoursesProvider>
+        </Container>
+      </div>
     </div>
   );
 }

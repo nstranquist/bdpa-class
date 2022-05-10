@@ -25,6 +25,8 @@ React Context Provider Pattern: https://javascript.works-hub.com/learn/building-
 
 Set up Material UI: https://v4.mui.com/
 
+Customize MUI Theme: https://mui.com/material-ui/customization/default-theme/
+
 ### Some Technologies Used
 - React
 - Material UI
