@@ -18,8 +18,12 @@ const CoursesProvider = ({ children }) => {
     ]))
   }
 
+  const removeCourse = (courseId) => {
+    setCourses(prev => prev.filter(course => course.id !== courseId))
+  }
+
   return (
-    <CoursesContext.Provider value={{ courses, addCourse }}>
+    <CoursesContext.Provider value={{ courses, addCourse, removeCourse }}>
       {children}
     </CoursesContext.Provider>
   )

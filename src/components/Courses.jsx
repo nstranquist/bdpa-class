@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Box, Card, CardContent, Typography, CardActions, Button } from "@material-ui/core"
 import AddIcon from '@material-ui/icons/Add';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import { AddCourseModal } from './AddCourseModal';
 import { useCoursesContext } from '../context/CoursesContext';
 
 export const Courses = () => {
   const [showAddCourseForm, setShowAddCourseForm] = useState(false)
-  const { courses, addCourse } = useCoursesContext()
+  const { courses, addCourse, removeCourse } = useCoursesContext()
 
   const toggleAddCourseForm = () => {
     setShowAddCourseForm(true)
@@ -36,6 +37,7 @@ export const Courses = () => {
             </CardContent>
             <CardActions>
               <Button>View More</Button>
+              <Button startIcon={<DeleteOutlineIcon />} onClick={() => removeCourse(course.id)}>Remove</Button>
             </CardActions>
           </Card>
         ))}
