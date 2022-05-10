@@ -38,8 +38,8 @@ export const Courses = () => {
     setShowAddCourseForm(false)
   }
 
-  const onEditCourse = (courseId, courseData) => {
-    updateCourse(courseId, courseData)
+  const onEditCourse = (courseData) => {
+    updateCourse(courseData.id, courseData)
     setShowEditCourseForm(false)
   }
 
