@@ -18,12 +18,27 @@ const CoursesProvider = ({ children }) => {
     ]))
   }
 
+  // https://stackoverflow.com/questions/45878147/how-to-update-an-object-in-an-array-of-objects-using-setstate
+  const updateCourse = (courseId, courseData) => {
+    const index = courses.findIndex(course => course.id === courseId)
+    if(index === -1) {
+      // send to error system
+      return;
+    }
+
+    setCourses(prev => ([
+      ...prev.slice(0, index),
+      {id: prev[index].id, ...courseData},
+      ...prev.slice(index + 1)
+    ]))
+  }
+
   const removeCourse = (courseId) => {
     setCourses(prev => prev.filter(course => course.id !== courseId))
   }
 
   return (
-    <CoursesContext.Provider value={{ courses, addCourse, removeCourse }}>
+    <CoursesContext.Provider value={{ courses, addCourse, updateCourse, removeCourse }}>
       {children}
     </CoursesContext.Provider>
   )
