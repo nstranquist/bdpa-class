@@ -21,6 +21,7 @@ Material UI Recipes:
 
 nanoid: https://www.npmjs.com/package/nanoid
 
+React Context Provider Pattern: https://javascript.works-hub.com/learn/building-with-react-context-provider-pattern-1af4b
 
 Set up Material UI: https://v4.mui.com/
 

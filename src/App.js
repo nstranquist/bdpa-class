@@ -4,12 +4,10 @@ import { Button, Container } from '@material-ui/core'
 import { ProfileName } from './components/ProfileName';
 import ProfileContext from './context/ProfileContext'
 import { Courses } from './components/Courses';
-import CourseContext from './context/CourseContext';
-import { exampleCourses } from './data/courses.data'
+import CoursesProvider from './context/CoursesContext';
 
 function App() {
   const [profileName, setProfileName] = useState('')
-  const [courses, setCourses] = useState(exampleCourses)
 
   const setName = (name) => {
     console.log('new name:', name)
@@ -37,15 +35,10 @@ function App() {
         </ProfileContext.Provider>
 
         {/* Courses */}
-        <CourseContext.Provider value={{
-          courses: courses,
-          setCourses: setCourses
-        }}>
+        <CoursesProvider>
           <Courses />
-        </CourseContext.Provider>
+        </CoursesProvider>
       </Container>
-
-      
     </div>
   );
 }

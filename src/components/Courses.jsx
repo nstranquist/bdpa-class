@@ -1,13 +1,13 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Box, Card, CardContent, Typography, CardActions, Button } from "@material-ui/core"
 import AddIcon from '@material-ui/icons/Add';
 import { AddCourseModal } from './AddCourseModal';
 import { nanoid } from 'nanoid';
-import CourseContext from '../context/CourseContext';
+import { useCoursesContext } from '../context/CoursesContext';
 
 export const Courses = () => {
   const [showAddCourseForm, setShowAddCourseForm] = useState(false)
-  const { courses, setCourses } = useContext(CourseContext)
+  const { courses, setCourses } = useCoursesContext()
 
   const toggleAddCourseForm = () => {
     setShowAddCourseForm(true)
