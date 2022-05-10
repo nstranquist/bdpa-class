@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { Box, Card, CardContent, Typography, CardActions, Button } from "@material-ui/core"
 import AddIcon from '@material-ui/icons/Add';
 import { AddCourseModal } from './AddCourseModal';
-import { nanoid } from 'nanoid';
 import { useCoursesContext } from '../context/CoursesContext';
 
 export const Courses = () => {
   const [showAddCourseForm, setShowAddCourseForm] = useState(false)
-  const { courses, setCourses } = useCoursesContext()
+  const { courses, addCourse } = useCoursesContext()
 
   const toggleAddCourseForm = () => {
     setShowAddCourseForm(true)
@@ -15,14 +14,8 @@ export const Courses = () => {
 
   const closeModal = () => setShowAddCourseForm(false)
 
-  const addCourse = (courseData) => {
-    console.log('got data:', courseData)
-
-    setCourses(previousCourses => ([
-      ...previousCourses,
-      {...courseData, id: nanoid()}
-    ]))
-
+  const onAddCourse = (courseData) => {
+    addCourse(courseData)
     setShowAddCourseForm(false)
   }
 
@@ -31,7 +24,7 @@ export const Courses = () => {
       <Typography variant="h4" component="h2" gutterBottom>Courses</Typography>
 
       <Button color="primary" size="large" startIcon={<AddIcon />} onClick={() => toggleAddCourseForm()}>Add</Button>
-      <AddCourseModal open={showAddCourseForm} onClose={closeModal} onSubmit={addCourse} />
+      <AddCourseModal open={showAddCourseForm} onClose={closeModal} onSubmit={onAddCourse} />
 
       {/* https://v4.mui.com/components/cards/#card */}
       <Box flexDirection="column" alignItems="center">

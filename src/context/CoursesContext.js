@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 import { exampleCourses } from '../data/courses.data'
+import { nanoid } from 'nanoid'
 
 const initialCourses = exampleCourses
 
@@ -8,10 +9,17 @@ export const CoursesContext = createContext({ courses: exampleCourses, setCourse
 const CoursesProvider = ({ children }) => {
   const [courses, setCourses] = useState(initialCourses)
 
-  // Can add methods here to add, update, remove courses
+  const addCourse = (courseData) => {
+    console.log('got data:', courseData)
+
+    setCourses(previousCourses => ([
+      ...previousCourses,
+      {...courseData, id: nanoid()}
+    ]))
+  }
 
   return (
-    <CoursesContext.Provider value={{ courses, setCourses }}>
+    <CoursesContext.Provider value={{ courses, addCourse }}>
       {children}
     </CoursesContext.Provider>
   )
