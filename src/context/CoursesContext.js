@@ -37,13 +37,23 @@ const CoursesProvider = ({ children }) => {
     setCourses(prev => prev.filter(course => course.id !== courseId))
   }
 
+  const findCourse = (courseId) => {
+    const course = courses.find(course => course.id === courseId)
+    if(!course) {
+      console.log('Course not found!')
+      return null
+    }
+    console.log({course})
+    return course
+  }
+
   return (
-    <CoursesContext.Provider value={{ courses, addCourse, updateCourse, removeCourse }}>
+    <CoursesContext.Provider value={{ courses, addCourse, updateCourse, removeCourse, findCourse }}>
       {children}
     </CoursesContext.Provider>
   )
 }
 
-export const useCoursesContext = () => useContext(CoursesContext)
+export const useCourses = () => useContext(CoursesContext)
 
 export default CoursesProvider

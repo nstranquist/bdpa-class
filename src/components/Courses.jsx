@@ -5,8 +5,9 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditIcon from '@material-ui/icons/Edit';
 import { AddCourseModal } from './AddCourseModal';
 import { EditCourseModal } from './EditCourseModal';
-import { useCoursesContext } from '../context/CoursesContext';
+import { useCourses } from '../context/CoursesContext';
 import { makeStyles } from '@material-ui/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   heading: {
@@ -19,7 +20,7 @@ export const Courses = () => {
   const [showAddCourseForm, setShowAddCourseForm] = useState(false)
   const [showEditCourseForm, setShowEditCourseForm] = useState(false)
   const [selectedCourseData, setSelectedCourseData] = useState(undefined)
-  const { courses, addCourse, updateCourse, removeCourse } = useCoursesContext()
+  const { courses, addCourse, updateCourse, removeCourse } = useCourses()
 
   const toggleAddCourseForm = () => {
     setShowEditCourseForm(false)
@@ -70,7 +71,7 @@ export const Courses = () => {
               <Typography variant="h6" component="h6">{course.score}%</Typography>
             </CardContent>
             <CardActions>
-              <Button>View More</Button>
+              <Button component={Link} to={`/courses/${course.id}`}>View More</Button>
               <Button startIcon={<DeleteOutlineIcon />} onClick={() => removeCourse(course.id)}>Remove</Button>
               <Button startIcon={<EditIcon />} onClick={() => toggleUpdateCourse(course.id)}>Edit</Button>
             </CardActions>
