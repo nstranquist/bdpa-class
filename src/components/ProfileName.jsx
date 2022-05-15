@@ -25,7 +25,7 @@ export const ProfileName = () => {
               Cancel
             </Button>
           </Typography>
-          <TextField placeholder="Your name here" value={context.name} onChange={(e) => context.setName(e.target.value)} margin="normal" fullWidth />
+          <TextField placeholder="Your name here" value={context.name} onChange={(e) => context.setName(e.target.value)} onSubmit={toggleShowForm} margin="normal" fullWidth />
         </>
       )}
     </Box>

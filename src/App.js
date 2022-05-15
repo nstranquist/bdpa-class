@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import { Container, makeStyles } from '@material-ui/core'
 import { ProfileName } from './components/ProfileName';
 import { Navbar } from './components/Navbar'
 import { Courses } from './components/Courses';
+import { PageNotFound } from './components/PageNotFound';
 import ProfileContext from './context/ProfileContext'
 import CoursesProvider from './context/CoursesContext';
 
@@ -26,26 +28,26 @@ function App() {
   }
 
   return (
-    <div className={classes.layoutContainer}>
-      <Navbar name={profileName} />
+    <CoursesProvider>
+      <ProfileContext.Provider value={{
+        name: profileName,
+        setName: setName
+      }}>
+        <div className={classes.layoutContainer}>
+          <Navbar name={profileName} />
 
-      <div className={classes.contentContainer}>
-        <Container>
-          {/* Profile */}
-          <ProfileContext.Provider value={{
-            name: profileName,
-            setName: setName
-          }}>
-            <ProfileName />
-          </ProfileContext.Provider>
-
-          {/* Courses */}
-          <CoursesProvider>
-            <Courses />
-          </CoursesProvider>
-        </Container>
-      </div>
-    </div>
+          <div className={classes.contentContainer}>
+            <Container>
+              <Routes>
+                <Route path="/" element={<Courses />} />
+                <Route path="/profile" element={<ProfileName />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Routes>
+            </Container>
+          </div>
+        </div>
+      </ProfileContext.Provider>
+    </CoursesProvider>
   );
 }
 
