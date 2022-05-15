@@ -7,6 +7,7 @@ import { Courses } from './components/Courses';
 import { PageNotFound } from './components/PageNotFound';
 import ProfileProvider from './context/ProfileContext'
 import CoursesProvider from './context/CoursesContext';
+import { HomePage } from './components/HomePage';
 
 const useStyles = makeStyles((theme) => ({
   layoutContainer: {
@@ -30,7 +31,7 @@ function App() {
           <div className={classes.contentContainer}>
             <Container>
               <Routes>
-                <Route path="/" element={<Courses />} />
+                <Route path="/" element={<HomePage />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/profile" element={<ProfileName />} />
                 <Route path="*" element={<PageNotFound />} />
