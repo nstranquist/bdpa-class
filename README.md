@@ -27,6 +27,10 @@ Set up Material UI: https://v4.mui.com/
 
 Customize MUI Theme: https://mui.com/material-ui/customization/default-theme/
 
+#### React-Router Documentation Shortcuts
+
+useNavigate: https://reactrouterdotcom.fly.dev/docs/en/v6/hooks/use-navigate
+
 ### Some Technologies Used
 - React
 - Material UI
