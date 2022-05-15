@@ -6,8 +6,16 @@ import EditIcon from '@material-ui/icons/Edit';
 import { AddCourseModal } from './AddCourseModal';
 import { EditCourseModal } from './EditCourseModal';
 import { useCoursesContext } from '../context/CoursesContext';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles(() => ({
+  heading: {
+    paddingTop: 20
+  }
+}))
 
 export const Courses = () => {
+  const classes = useStyles()
   const [showAddCourseForm, setShowAddCourseForm] = useState(false)
   const [showEditCourseForm, setShowEditCourseForm] = useState(false)
   const [selectedCourseData, setSelectedCourseData] = useState(undefined)
@@ -17,6 +25,7 @@ export const Courses = () => {
     setShowEditCourseForm(false)
     setShowAddCourseForm(true)
   }
+  
   const toggleUpdateCourse = (courseId) => {
     // first, need to find the course with the id, and set the temporary data
     const courseData = courses.find(course => course.id === courseId)
@@ -44,8 +53,8 @@ export const Courses = () => {
   }
 
   return (
-    <Box style={{marginTop: 50}}>
-      <Typography variant="h4" component="h2" gutterBottom>Courses</Typography>
+    <Box>
+      <Typography variant="h4" component="h2" gutterBottom className={classes.heading}>Courses</Typography>
 
       <Button color="primary" size="large" startIcon={<AddIcon />} onClick={() => toggleAddCourseForm()}>New Course</Button>
       

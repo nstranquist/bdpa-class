@@ -1,11 +1,13 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Box, Button, TextField, Typography } from "@material-ui/core"
-import ProfileContext from '../context/ProfileContext'
+import { useProfile } from '../context/ProfileContext'
 import { Close, Edit } from '@material-ui/icons'
 
 export const ProfileName = () => {
-  const context = useContext(ProfileContext)
+  const context = useProfile()
   const [showForm, setShowForm] = useState(false)
+
+  // Could use route params, then use this on home page and profile page with slightly different behavior
 
   const toggleShowForm = () => setShowForm(!showForm)
 

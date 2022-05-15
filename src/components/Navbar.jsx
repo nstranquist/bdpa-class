@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Typography, Link } from "@material-ui/core"
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from "react-router-dom";
+import { useProfile } from "../context/ProfileContext";
 import logo from '../logo.svg'
 
 const useStyles = makeStyles((theme) => ({
@@ -18,10 +19,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export const Navbar = ({
-  name
-}) => {
+export const Navbar = () => {
   const classes = useStyles()
+  const { name } = useProfile()
 
   return (
     <div className={classes.root}>

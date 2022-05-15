@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 const initialProfileValue = {
   name: '',
@@ -7,5 +7,20 @@ const initialProfileValue = {
 
 const ProfileContext = createContext(initialProfileValue)
 
-export default ProfileContext;
+const ProfileProvider = ({ children }) => {
+  const [profileName, setProfileName] = useState('')
+
+  return (
+    <ProfileContext.Provider value={{
+      name: profileName,
+      setName: setProfileName
+    }}>
+      {children}
+    </ProfileContext.Provider>
+  )
+}
+
+export const useProfile = () => useContext(ProfileContext)
+
+export default ProfileProvider;
 
